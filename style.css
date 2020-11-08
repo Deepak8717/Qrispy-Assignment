@@ -1,11 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
-/* html{
-    overflow-y:scroll;
-} */
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+
 *{
     margin:0;
     padding:0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Alegreya', serif;
+    /* border:1px solid black; */
 }
 
 header{
@@ -44,12 +43,12 @@ header{
 }
 .main-menu h2{
     font-size: 35px;
-    margin:5px 0;
+    margin:10px 0;
 }
 .accordion{
     width:100%;
     height: 50px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     background:#000;
     color:#fbd84a;
     border:none;
@@ -57,37 +56,40 @@ header{
     font-size: 20px;
     border-radius: 5px;
     cursor: pointer;
-    transition: 0.3s ease-in;
+    transition: 0.2s ease-in;
+    letter-spacing: 2px;
 }
-.accordion i{
-    margin-right: 10px;
-}
+
 .accordion:hover{
     transition: 0.3s ease-in;
 }
-.accordion:hover i{
-    font-size: 30px;
-    transition: 0.4s ease-in;
+.accordion:hover span i{
+    font-size: 25px;
+    transition: 0.2s ease-in;
+    top:0px;
+
 }
 .active{
-    transition: 0.4s ease-in;
+    transition: 0.2s ease-in;
 }
 .active i {
-    font-size: 30px;
-    transition: 0.4s ease-in;
+    font-size: 25px;
+    transition: 0.2s ease-in;
+    top:0px;
 }
 
 .panel{
     display: none;
-    width:95%;
+    width:100%;
     margin:5px auto;
 }
 .panel li{
-    padding:10px;
+    padding:2px;
     margin:5px;
     text-align: left ;
     cursor: pointer;
     border-radius: 5px;
+    position: relative;
 }
 .panel li:hover{
     background: rgb(216, 216, 216);
@@ -95,8 +97,30 @@ header{
 .panel li a{
     text-decoration: none;
     font-size: 20px;
-    color:#000
+    color:#000;
+    display: flex;
+    flex-direction: column;
 }
+.panel .item{
+    width:94%;
+    display: flex;
+    margin-left: 4%;
+    margin-right: 2%;
+}
+.panel .item >div:nth-child(1){
+    width:80%;
+    padding:1px;
+}
+.panel .item >div:nth-child(2){
+    text-align: right;
+    width:20%;
+}
+.item p{
+    font-style: italic;
+    font-size: 19px;
+    color:gray;
+}
+
 ul {
     list-style: none;
     padding: 0;
@@ -105,13 +129,49 @@ ul {
     content: "\f192"; /* FontAwesome Unicode */
     font-family: FontAwesome;
     display: inline-block;
-    /* margin-left: -1.3em;  */
+    margin-left: 0em; 
     /* width: 1em;  */
     color:green;
     font-size: 20px;
+    position: absolute;
+    top:20px;
+    
   }
-  
-@media screen and (max-width:350px){
+.accordion span{
+    display:inline-block;
+    width:25%;
+    position: relative;
+    text-align: left;
+    padding-left: 10%;
+}
+.accordion span i{
+    position: absolute;
+    left:10%;
+    top:15%;
+}
+.price{
+    display: flex;
+    width:90%;
+    justify-content: flex-end;
+}
+.price > div{
+    width: 20%;
+}
+.price button{
+    width:85%;
+    border:none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 50%;
+    margin-right: 8%;
+}
+.price span{
+    display: inline-block;
+    width:100%;
+    text-align: center;
+}
+
+@media screen and (max-width:399px){
     .panel li{
         padding:5px;
     }
@@ -122,4 +182,34 @@ ul {
         margin-left:5px;
         font-size: 15px;
     }
+    .accordion span{
+        padding-left: 15%;
+    }
+    
+    .panel{
+        width:98%;
+    }
+    li:before {
+        margin-left: -1em; 
+      }
+      .price{
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    .price > div{
+        width: 100%;
+        height: 20px;
+        position: relative;
+        top:-5px;
+    }
+    .price button{
+        width:50%;
+        height: 15px;
+        margin:0;
+        padding:0;
+    }
+    .price span{
+        width:50%;
+    }
+    
 }
